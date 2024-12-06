@@ -40,13 +40,13 @@ const Products = () => {
                                 <div key={i} className='col-sm-6 col-md-4 col-lg-3'>
                                     <div className="card shadow-sm">
                                         <img 
-                                            src={product.photo ? product.photo : `https://images.pexels.com/photos/432059/pexels-photo-432059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`} 
+                                            src={product.photo} 
                                             className='card-img-top adjust' 
                                             alt={product.name} 
                                         />
                                         <div className="card-body">
                                             <h5 className='card-title text-capitalize'>{product?.name}</h5>
-                                            <p className='card-text text-secondary'>{product?.description.slice(0, 40)}...</p>
+                                            <p className='card-text text-secondary'>{product?.description?.slice(0,30)}...</p>
                                             <p className='text-success font-weight-bold'>Price: ₹{product?.price}</p>
                                             <div className='d-flex justify-content-between'>
                                                 <button 
