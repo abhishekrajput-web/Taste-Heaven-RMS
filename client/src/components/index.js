@@ -7,7 +7,7 @@ import AdminSidebar from "./admin/AdminSidebar";
 import UserSidebar from "./user/UserSidebar";
 import CategoryForm from "./admin/CategoryForm";
 import Prices from "./utils/Prices";
-import ProductCard from "./productCard";
+import ProductCard from "./ProductCard";
 import NotFound from "./NotFound";
 import HeroBanner from "./body/HeroBanner";
 import ScrollToTop from "./ScrollToTop";
