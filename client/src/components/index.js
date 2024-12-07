@@ -13,7 +13,9 @@ import HeroBanner from "./body/HeroBanner";
 import ScrollToTop from "./ScrollToTop";
 // import Info from "./Info";
 import Heading from "./Heading";
+import Modal from "./Modal";
+
 // import Reservation from "./Reservation";
 import TableReservationModal from "./TableResrvationModal";
 
-export { Navbar, Footer, PrivateRoute, Spinner, AdminRoute, AdminSidebar, UserSidebar, CategoryForm, Prices, ProductCard, NotFound, HeroBanner, ScrollToTop, Heading, TableReservationModal };
+export { Navbar, Footer, PrivateRoute, Spinner, AdminRoute, Modal, AdminSidebar, UserSidebar, CategoryForm, Prices, ProductCard, NotFound, HeroBanner, ScrollToTop, Heading, TableReservationModal };
