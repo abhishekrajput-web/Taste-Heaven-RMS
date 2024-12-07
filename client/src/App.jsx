@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Home, About, Contact, Policy, Register, Login, Dashboard, ForgotPassword, AdminDashboard, CreateCategory, CreateProduct, Orders, Profile, Products, UpdateProduct, Search, ProductDetail,Categories, CategoryProduct, Cart, AdminOrders, ReservationForm, GiveFeedback, Feedbacks} from "./pages";
-import { Navbar, Footer, PrivateRoute, AdminRoute, NotFound, ScrollToTop} from "./components";
+import { Navbar, Footer, PrivateRoute, AdminRoute, NotFound, ScrollToTop, Modal} from "./components";
 import {Toaster} from "react-hot-toast";
 import "./App.css";
 const App = () => {
@@ -11,6 +11,7 @@ const App = () => {
     <BrowserRouter>
     {/* <Info/> */}
     <Toaster/>
+    <Modal/>
     <Navbar/>
     {/* <ScrollToTop/> */}
       <div className='App'>
