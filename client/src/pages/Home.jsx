@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Checkbox, Radio } from "antd";
 import { Prices, HeroBanner, ProductCard } from '../components';
 import ReservationForm from './user/ReservationForm';
+import BASE_URL from '../utils/fetchBaseUrl';
 // import HeroBanner from '../components/HeroBanner';
 // import {ProductCard} from "../components";
 
@@ -21,7 +22,7 @@ const Home = () => {
   // handle category get
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("http://localhost:3000/api/v1/category/get-category");
+      const { data } = await axios.get(`${BASE_URL}/api/v1/category/get-category`);
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -36,7 +37,7 @@ const Home = () => {
   //  handle total products 
   const getTotalProducts = async () => {
     try {
-      const { data } = await axios.get("http://localhost:3000/api/v1/product/product-count");
+      const { data } = await axios.get(`${BASE_URL}/api/v1/product/product-count`);
       setTotal(data?.total);
     }
     catch (err) {
@@ -53,7 +54,7 @@ const Home = () => {
   const getProducts = async () => {
     try {
       Setloading(true);
-      const { data } = await axios.get(`http://localhost:3000/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(`${BASE_URL}/api/v1/product/product-list/${page}`);
       // const { data } = await axios.get("http://localhost:3000/api/v1/product/get-product");
       Setloading(false);
       setProducts(data?.products);
@@ -78,7 +79,7 @@ const Home = () => {
   const loadMore = async () => {
     try {
       Setloading(true);
-      const { data } = await axios.get(`http://localhost:3000/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(`${BASE_URL}/api/v1/product/product-list/${page}`);
       Setloading(false);
       setProducts([...products, ...data?.products]);
     }
@@ -110,7 +111,7 @@ const Home = () => {
   // post filter products
   const postFilterProducts = async () => {
     try {
-      const { data } = await axios.post("http://localhost:3000/api/v1/product/product-filters", { checked, radio });
+      const { data } = await axios.post(`${BASE_URL}/api/v1/product/product-filters`, { checked, radio });
       console.log(data);
       setProducts(data?.products);
     }

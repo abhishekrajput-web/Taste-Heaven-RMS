@@ -7,7 +7,8 @@ import { useAuth } from '../../context/auth'; // Adjust the path accordingly
 import { Heading } from '../../components';
 import { Spinner } from 'react-bootstrap'; // For the loading spinner
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap styles
-const BASE_URL = "http://localhost:3000";
+import BASE_URL from '../../utils/fetchBaseUrl';
+
 
 const Feedbacks = () => {
   const { auth } = useAuth();

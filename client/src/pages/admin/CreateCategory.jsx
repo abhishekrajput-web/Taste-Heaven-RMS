@@ -3,6 +3,7 @@ import { AdminSidebar, CategoryForm, Heading } from '../../components'
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import { Button, Modal } from 'antd';
+import BASE_URL from '../../utils/fetchBaseUrl';
 const CreateCategory = () => {
   // const [category, setCategory] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -15,7 +16,7 @@ const CreateCategory = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('http://localhost:3000/api/v1/category/create-category', { name });
+      const { data } = await axios.post(`${BASE_URL}/api/v1/category/create-category`, { name });
 
       if (data?.success) {
         // toast.success(`${name} is created`);
@@ -36,7 +37,7 @@ const CreateCategory = () => {
   //  hanlde delete
   const handleDelete = async (id) => {
     try {
-      const { data } = await axios.delete(`http://localhost:3000/api/v1/category/delete-category/${id}`);
+      const { data } = await axios.delete(`${BASE_URL}/api/v1/category/delete-category/${id}`);
 
       if (data?.success) {
         toast.success(`selected category is deleted`);
@@ -57,7 +58,7 @@ const CreateCategory = () => {
     e.preventDefault();
     try {
       console.log(e);
-      const { data } = await axios.put(`http://localhost:3000/api/v1/category/update-category/${selected._id}`, { name: updatedName });
+      const { data } = await axios.put(`${BASE_URL}/api/v1/category/update-category/${selected._id}`, { name: updatedName });
 
       if (data?.success) {
         toast.success(`${updatedName} is updated`);
@@ -80,7 +81,7 @@ const CreateCategory = () => {
   //  handle get category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("http://localhost:3000/api/v1/category/get-category");
+      const { data } = await axios.get(`${BASE_URL}/api/v1/category/get-category`);
       if (data?.success) {
         setCategories(data?.category);
       }

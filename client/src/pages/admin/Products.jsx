@@ -4,6 +4,7 @@ import { AdminSidebar, Heading } from "../../components";
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
+import BASE_URL from '../../utils/fetchBaseUrl';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -12,7 +13,7 @@ const Products = () => {
     // Handle get products
     const getProducts = async () => {
         try {
-            const { data } = await axios.get("http://localhost:3000/api/v1/product/get-product");
+            const { data } = await axios.get(`${BASE_URL}/api/v1/product/get-product`);
             setProducts(data?.products);
             console.log(data.products);
         } catch (err) {

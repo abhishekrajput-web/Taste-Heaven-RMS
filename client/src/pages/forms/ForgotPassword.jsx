@@ -3,6 +3,7 @@ import { Link, useNavigate} from "react-router-dom";
 import toast from 'react-hot-toast';
 import axios from "axios";
 import { Heading } from '../../components';
+import BASE_URL from '../../utils/fetchBaseUrl';
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   // const [question, setQuestion] = useState("");
@@ -14,7 +15,7 @@ const ForgotPassword = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:3000/api/v1/auth/forgot-password", {
+      const res = await axios.post(`${BASE_URL}/api/v1/auth/forgot-password`, {
         email,
         // question,
         newPassword,

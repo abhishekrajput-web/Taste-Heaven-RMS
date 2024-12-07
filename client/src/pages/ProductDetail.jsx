@@ -212,6 +212,7 @@ import { ProductCard, Heading } from '../components';
 import { useCart } from '../context/cart';
 import toast from 'react-hot-toast';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import BASE_URL from '../utils/fetchBaseUrl';
 
 const ProductDetail = () => {
   const { cart, setCart } = useCart();
@@ -222,7 +223,7 @@ const ProductDetail = () => {
   // Get product details
   const getProduct = async () => {
     try {
-      const { data } = await axios.get(`http://localhost:3000/api/v1/product/single-product/${slug}`);
+      const { data } = await axios.get(`${BASE_URL}/api/v1/product/single-product/${slug}`);
       setProduct(data?.singleProduct);
       getRelatedProduct(data?.singleProduct._id, data?.singleProduct.category._id);
     } catch (err) {
@@ -237,7 +238,7 @@ const ProductDetail = () => {
   // Get related products
   const getRelatedProduct = async (pid, cid) => {
     try {
-      const { data } = await axios.get(`http://localhost:3000/api/v1/product/related-product/${pid}/${cid}`);
+      const { data } = await axios.get(`${BASE_URL}/api/v1/product/related-product/${pid}/${cid}`);
       setRelatedProduct(data?.products);
     } catch (err) {
       console.log(err);

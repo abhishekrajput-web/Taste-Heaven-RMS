@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { Select } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
+import BASE_URL from "../../utils/fetchBaseUrl";
 
 const { Option } = Select;
 
@@ -24,7 +25,7 @@ const UpdateProduct = () => {
   const getSingleProdcut = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:3000/api/v1/product/single-product/${slug}`
+        `${BASE_URL}/api/v1/product/single-product/${slug}`
       );
       setId(data.singleProduct._id);
       console.log(data);
@@ -55,7 +56,7 @@ const UpdateProduct = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:3000/api/v1/category/get-category"
+        `${BASE_URL}/api/v1/category/get-category`
       );
       if (data?.success) {
         setCategories(data?.category);
@@ -106,7 +107,7 @@ const UpdateProduct = () => {
         photo,
       };
       const { data } = await axios.put(
-        `http://localhost:3000/api/v1/product/update-product/${id}`,
+        `${BASE_URL}/api/v1/product/update-product/${id}`,
         updatedData
       );
       if (data?.success) {
@@ -131,7 +132,7 @@ const UpdateProduct = () => {
       );
       if (!answer) return;
       const { data } = await axios.delete(
-        `http://localhost:3000/api/v1/product/delete-product/${id}`
+        `${BASE_URL}/api/v1/product/delete-product/${id}`
       );
       if (data?.success) {
         toast.success(`selected product is deleted`);

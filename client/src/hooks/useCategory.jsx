@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import axios from "axios";
+import BASE_URL from '../utils/fetchBaseUrl';
 const useCategory = () => {
     const [categories, setCategories] = useState([]);
 
     const getAllCategory = async () => {
         try{
-          const {data} = await axios.get("http://localhost:3000/api/v1/category/get-category");
+          const {data} = await axios.get(`${BASE_URL}/api/v1/category/get-category`);
             setCategories(data?.category);
         }
         catch(err){

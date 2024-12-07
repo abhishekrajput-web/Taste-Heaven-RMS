@@ -1,6 +1,7 @@
 // components/TableReservationModal.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
+import BASE_URL from '../utils/fetchBaseUrl';
 
 const TableReservationModal = ({ onClose }) => {
     const [customerName, setCustomerName] = useState('');
@@ -12,7 +13,7 @@ const TableReservationModal = ({ onClose }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/api/v1/tables/book', {
+            const response = await axios.post(`${BASE_URL}/api/v1/tables/book`, {
                 customerName,
                 phone,
                 date,

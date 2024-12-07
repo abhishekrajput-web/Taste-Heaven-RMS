@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from 'react-hot-toast';
 import { Heading } from '../../components';
+import BASE_URL from '../../utils/fetchBaseUrl';
 const Register = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -66,7 +67,7 @@ if (!passwordPattern.test(password)) {
 
 
     try {
-      const res = await axios.post("http://localhost:3000/api/v1/auth/register", {
+      const res = await axios.post(`${BASE_URL}/api/v1/auth/register`, {
         name,
         password,
         email,

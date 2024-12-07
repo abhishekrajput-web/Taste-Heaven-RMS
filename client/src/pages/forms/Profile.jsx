@@ -5,6 +5,7 @@ import axios from "axios";
 import toast from 'react-hot-toast';
 import { useAuth } from '../../context/auth';
 import { UserSidebar, Heading } from '../../components';
+import BASE_URL from '../../utils/fetchBaseUrl';
 const Profile = () => {
 
   // context 
@@ -61,7 +62,7 @@ if (!phoneNumberPattern.test(phone)) {
   
 
     try {
-      const {data} = await axios.put("http://localhost:3000/api/v1/auth/user-profile", {
+      const {data} = await axios.put(`${BASE_URL}/api/v1/auth/user-profile`, {
         name,
         email,
         // password,
@@ -72,7 +73,7 @@ if (!phoneNumberPattern.test(phone)) {
 
       if (data?.error) {
         toast.error(data?.error);
-        console.log(error);
+        console.log(data?.error);
       }
 
       else{

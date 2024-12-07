@@ -3,13 +3,13 @@ import axios from 'axios';
 import { useAuth } from '../context/auth'; 
 import {toast} from "react-hot-toast";
 import { Link } from 'react-router-dom';
+import BASE_URL from '../utils/fetchBaseUrl';
 
 const GiveFeedback = () => {
   const [message, setMessage] = useState('');
   const [rating, setRating] = useState(1);
   const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
   const [error, setError] = useState(null);
-  const BASE_URL = "http://localhost:3000";
   const { auth } = useAuth();
 
   const handleSubmit = async (e) => {

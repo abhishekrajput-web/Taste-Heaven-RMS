@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import { useAuth } from '../../context/auth';
 import moment from "moment";
 import { Select } from 'antd';
+import BASE_URL from '../../utils/fetchBaseUrl';
 
 const { Option } = Select;
 
@@ -17,7 +18,7 @@ const AdminOrders = () => {
 
   const getAllOrders = async () => {
     try {
-      const { data } = await axios.get("http://localhost:3000/api/v1/auth/all-orders");
+      const { data } = await axios.get(`${BASE_URL}/api/v1/auth/all-orders`);
       setOrders(data?.orders);
       console.log(data);
     } catch (err) {
@@ -32,7 +33,7 @@ const AdminOrders = () => {
 
   const handleChange = async (orderId, value) => {
     try {
-      const { data } = await axios.put(`http://localhost:3000/api/v1/auth/order-status/${orderId}`, { status: value });
+      const { data } = await axios.put(`${BASE_URL}/api/v1/auth/order-status/${orderId}`, { status: value });
       getAllOrders();
       console.log(data);
     } catch (err) {

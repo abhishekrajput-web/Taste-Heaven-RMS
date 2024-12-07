@@ -30,10 +30,10 @@ const ScrollToTop = () => {
     <button
       className="btn btn-primary position-fixed bottom-3 end-2 rounded-circle p-3"
       style={{
-        display:'block', // Only show when scrolled down
-        fontSize: '2rem', // Increased font size for visibility
-        width: '70px', // Adjust width for better spacing
-        height: '70px', // Adjust height for better spacing
+        display:'block',
+        fontSize: '2rem',
+        width: '70px',
+        height: '70px', 
 		position:"relative",
 		top:"60%",
 		left:"70%"
@@ -41,7 +41,7 @@ const ScrollToTop = () => {
       onClick={scrollToTop}
     >
 		<h1>lmald;d;ama</h1>
-      <FaArrowCircleUp size={50} /> {/* Increased icon size */}
+      <FaArrowCircleUp size={50} /> 
     </button>
   );
 };

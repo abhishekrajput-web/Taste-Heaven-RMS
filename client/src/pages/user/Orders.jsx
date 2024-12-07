@@ -5,6 +5,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useAuth } from '../../context/auth';
 import moment from "moment";
+import BASE_URL from '../../utils/fetchBaseUrl';
 
 const Orders = () => {
   const { auth } = useAuth();
@@ -12,7 +13,7 @@ const Orders = () => {
 
   const getOrders = async () => {
     try {
-      const { data } = await axios.get("http://localhost:3000/api/v1/auth/orders");
+      const { data } = await axios.get(`${BASE_URL}/api/v1/auth/orders`);
       setOrders(data?.orders);
       console.log(data);
     } catch (err) {

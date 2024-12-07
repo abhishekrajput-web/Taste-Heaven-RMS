@@ -4,6 +4,7 @@ import axios from "axios";
 import toast from 'react-hot-toast';
 import { useAuth } from '../../context/auth';
 import { Heading } from '../../components';
+import BASE_URL from '../../utils/fetchBaseUrl';
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,7 +17,7 @@ const Login = () => {
     // console.log( password, email);
 
     try {
-      const res = await axios.post("http://localhost:3000/api/v1/auth/login", {
+      const res = await axios.post(`${BASE_URL}/api/v1/auth/login`, {
         email,
         password,
       })
